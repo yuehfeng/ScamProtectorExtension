@@ -1,0 +1,282 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    /* background: #000; */
+    z-index: -2;
+    position: relative;
+}
+
+nav ul {
+    margin: auto 25vw;
+}
+
+nav>ul>li {
+    text-align: center;
+    width: 25%;
+    display: inline-block;
+}
+
+div.menu>div {
+    border-radius: 25px;
+    display: inline-block;
+    padding: 20px;
+    min-height: 250px;
+    width: 30vw;
+    height: 70vh;
+    margin: 10px;
+}
+
+.avatar {
+    margin: 20px auto;
+    box-sizing: border-box;
+    position: relative;
+    border-radius: 50%;
+    padding: 4px;
+    box-shadow: inset 0 0 0 2px #4D4F6E;
+    box-shadow: #c8c9d7 5px 5px 10px;
+}
+
+.avatar-large {
+    width: 50vw;
+    height: 50vw;
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.avatar-x-large {
+    width: 144px;
+    width: 144px;
+}
+
+.avatar-image {
+    max-width: 100%;
+    vertical-align: middle;
+    border-radius: 50%;
+}
+
+.avatar-frame {
+    position: absolute;
+    pointer-events: none;
+}
+
+.avatar-large .avatar-frame {
+    top: -10%;
+    left: -10%;
+    max-width: 120%;
+}
+
+.avatar-x-large .avatar-frame {
+    top: -12.5%;
+    left: -12.5%;
+    max-width: 125%;
+}
+
+.anim-spin {
+    animation: spin 20s linear infinite;
+}
+
+.anim-hue {
+    animation: hue 20s linear infinite;
+}
+
+@keyframes hue {
+    100% {
+        filter: hue-rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+h2 {
+    margin-top: 20px auto;
+    background-image: url("./bg-line.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h2 span {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bolder;
+    font-size: 2.5vrem;
+    background: -webkit-linear-gradient(#fffcd2, #aff8f7);
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent;
+    animation: colorful 20s linear infinite;
+}
+
+@keyframes colorful {
+    0% {
+        background: -webkit-linear-gradient(#fffcd2, #aff8f7);
+    }
+
+    25% {
+        background: -webkit-linear-gradient(#aff8f7, #a3fe9e);
+    }
+
+    50% {
+        background: -webkit-linear-gradient(#a3fe9e, #f7aff8);
+    }
+
+    75% {
+        background: -webkit-linear-gradient(#f7aff8, #fee79a);
+    }
+
+    90% {
+        background: -webkit-linear-gradient(#fee79a, #fffcd2);
+    }
+}
+
+h3 {
+    text-shadow: #fff 0px 0px 15px;
+    font-weight: bolder !important;
+    color: #fff !important;
+    font-size: 4rem !important;
+}
+
+h4 {
+    font-size: 1.8rem !important;
+    font-weight: bolder !important;
+    color: #bdc3c7 !important;
+    margin: 10px !important;
+    letter-spacing: 6px;
+}
+
+.page {
+    height: 100vh;
+}
+
+.fake-bg {
+    z-index: -99999;
+    position: absolute;
+    width: 99vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    background: #000;
+    overflow-x: hidden;
+}
+
+.shadow-text {
+    width: 500px;
+    top: 30vh;
+    left: 50vw;
+    position: absolute;
+    z-index: -200;
+    font-size: 72px;
+    color: #000;
+    font-weight: bolder;
+    -webkit-text-stroke: 2px #fff;
+}
+
+.description {
+    text-align: left !important;
+    font-size: 18px;
+    color: #fff;
+    line-height: 2.5rem;
+    text-indent: 36px;
+}
+
+header {
+    padding: 6px 0;
+    color: rgb(220, 220, 220);
+    text-align: center;
+    position: sticky;
+    z-index: 999;
+    top: 0;
+    width: 100%;
+}
+
+.bgtransfer * {
+    background: none !important;
+}
+
+.total {
+    text-shadow: #fff 0px 0px 15px;
+    font-weight: bolder !important;
+    color: #fff !important;
+    font-size: 3rem;
+}
+
+.total-row {
+    line-height: 4rem;
+}
+
+.badge {
+    font-size: 1.1rem !important;
+}
+
+/* stroke */
+nav {
+    margin: 0 auto;
+}
+
+nav>ul {
+    list-style: none;
+    text-align: center;
+}
+
+nav>ul>li {
+    display: inline-block;
+}
+
+nav>ul>li a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    color: #aaa;
+    font-weight: 800;
+    margin: 0 10px;
+}
+
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+    transition: all .5s;
+}
+
+nav ul li a:hover {
+    color: #555;
+}
+
+nav.stroke ul li a,
+nav.fill ul li a {
+    position: relative;
+}
+
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: ' ';
+    color: transparent;
+    height: 1px;
+}
+
+nav.stroke ul li a:hover:after {
+    background: #767474;
+    width: 100%;
+}
+
+.nav-row-line {
+    line-height: 80px;
+}
+
+.nav-row-line a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    color: #aaa;
+}
+
+.nav-row-line a:hover {
+    text-decoration: underline;
+    color: #555555;
+}

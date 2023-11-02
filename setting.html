@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta>
+    <title>ScamProtector Setting | 詐騙護手</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: black;
+            font-size: 1.2rem;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 24px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 2px;
+            top: 2px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked+.slider {
+            background-color: green;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+
+        .options div {
+            margin: 10px auto;
+        }
+
+        h1 {
+            line-height: 6rem;
+            font-size: 1.75rem;
+            font-weight: bolder;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row mt-3">
+            <div class="col-4 text-center text-light">
+                <img src="./assets/logoheader.png" class="col-9 mt-2" alt="">
+                <div class="my-4">
+                    <button class="btn btn-outline-danger" id="clearStorage">清除所有設定資料</button>
+                </div>
+                <div>版本：0.0.1</div>
+            </div>
+            <div class="col-8 options">
+                <h1 class="text-light mt-4">一般選項</h1>
+                <div class="container text-light">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="background_runs" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">每當我開啟瀏覽器時，程式於背景執行。</span>
+                    </div>
+                </div>
+                <div class="container text-light">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="image_background_scanning" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">對於載入中網頁的「圖片」元素，先於背景掃描判斷。</span>
+                    </div>
+                </div>
+                <div class="container text-light">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="image_blocking" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">掃描完成後自動屏蔽網頁中含有惡意的「圖片」元素。</span>
+                    </div>
+                </div>
+                <div class="container text-light">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="url_background_scanning" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">對於載入中網頁的「連結」元素，先於背景掃描判斷。</span>
+                    </div>
+                </div>
+                <div class="container text-light">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="url_blocking" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">掃描完成後自動屏蔽網頁中含有惡意的「連結」元素。</span>
+                    </div>
+                </div>
+                <div class="container text-light">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="context_background_scanning" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">對於載入中網頁的內容與腳本，先於背景掃描判斷。</span>
+                    </div>
+                </div>
+                <div class="container text-light">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="user_report" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">願意參加使用者回報活動，使資料運算更加準確。</span>
+                    </div>
+                </div>
+
+                <h1 class="text-light">同步資料</h1>
+                <div class="container text-light">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="sync_google_account" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">同步資料於您現在登入的Google帳號中，您於其他裝置時使用本擴充套件時，將自動套用現在的設定。</span>
+                    </div>
+                </div>
+
+                <h1 class="text-light">篩選分類</h1>
+                <div class="container text-light">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="blocking_all_web_categories" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">屏蔽所有的網頁分類。</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="abuse" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">虐待</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="ads" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">廣告</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="crypto" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">虛擬貨幣</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="drugs" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">藥物、毒品</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="facebook" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">阻止FB相關的服務</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="fraud" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">欺詐</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="gambling" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">博弈</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="malware" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">惡意軟體</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="phishing" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">釣魚網站</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="piracy" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">盜版網站</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="porn" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">成人網站</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="ransomware" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">勒索軟體</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="scam" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">詐騙網站</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="tiktok" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">抖音惡意網站</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="torrent" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">P2P文件分享協議</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="tracking" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">追蹤個人資訊的網站</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="opendata_web" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">假投資(博弈)網站</span>
+                    </div>
+                </div>
+                <div class="container text-light ms-4 child-categories">
+                    <div class="d-flex">
+                        <label class="switch">
+                            <input id="opendata_lineid" type="checkbox">
+                            <span class="slider"></span>
+                        </label>
+                        <span class="mx-4">詐騙LINE ID</span>
+                    </div>
+                </div>
+                <h1 class="text-light mt-4">安全清單</h1>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="setting.js"></script>
+
+</html>
